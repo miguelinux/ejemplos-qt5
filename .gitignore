@@ -16,3 +16,8 @@
 *~
 .*~
 *.swp
+
+# Qt autogen files
+moc_*.cpp
+ui_*.h
+
