@@ -26,9 +26,11 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
+        opencvworker.cpp \
         qcvwidget.cpp
 
 HEADERS += \
+        opencvworker.h \
         qcvwidget.h
 
 FORMS += \
