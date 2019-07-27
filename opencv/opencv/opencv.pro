@@ -36,7 +36,7 @@ HEADERS += \
 FORMS += \
         qcvwidget.ui
 
-INCLUDEPATH += -I/usr/include/opencv4/opencv -I/usr/include/opencv4
+INCLUDEPATH += /usr/include/opencv4/opencv /usr/include/opencv4
 
 LIBS += -lopencv_highgui -lopencv_core -lopencv_imgproc -lopencv_videoio
 
