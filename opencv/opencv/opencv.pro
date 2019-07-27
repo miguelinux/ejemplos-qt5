@@ -36,7 +36,9 @@ HEADERS += \
 FORMS += \
         qcvwidget.ui
 
-LIBS += -lopencv_highgui -lopencv_core -lopencv_imgproc -lopencv_video
+INCLUDEPATH += -I/usr/include/opencv4/opencv -I/usr/include/opencv4
+
+LIBS += -lopencv_highgui -lopencv_core -lopencv_imgproc -lopencv_videoio
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
