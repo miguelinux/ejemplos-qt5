@@ -18,12 +18,32 @@ private:
     cv::Mat _frameProcessed;
     cv::VideoCapture *cap;
 
+    bool status;
+    bool togleStream;
+
+    bool binaryThresholdEnable;
+    int  binaryThreshold;
+
+    void process();
+
 public:
     explicit OpenCvWorker(QObject *parent = nullptr);
 
+    ~OpenCvWorker();
+
 signals:
 
+    void sendFrame(QImage frameProcessed);
+
 public slots:
+
+    void receiveGrabFrame();
+    void receiveSetup(const int device);
+    void receiveTogleStream();
+
+    void receiveEnableBinaryThreshold();
+    void receiveBinaryThreshold(int threshold);
+
 };
 
 #endif // OPENCVWORKER_H
