@@ -20,3 +20,20 @@ OpenCvWorker::~OpenCvWorker()
     }
 }
 
+void OpenCvWorker::receiveGrabFrame()
+{
+    if(!toggleStream)
+        return;
+
+    (*cap) >> _frameOriginal;
+
+    if (_frameOriginal.empty())
+        return;
+
+    process();
+
+    QImage output(const_cast<const unsigned char *>(_frameProcessed.data), _frameProcessed.cols, _frameProcessed.rows, QImage::Format_Indexed8);
+
+    emit sendFrame(output);
+
+}
