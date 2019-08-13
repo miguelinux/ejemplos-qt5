@@ -39,6 +39,10 @@ void OpenCvWorker::receiveGrabFrame()
 
 }
 
+void OpenCvWorker::checkIfDeviceIsOpen()
+{
+}
+
 void OpenCvWorker::process()
 {
     cv::cvtColor(_frameOriginal, _frameProcessed, cv::COLOR_BGR2GRAY);
@@ -46,5 +50,25 @@ void OpenCvWorker::process()
     if(binaryThresholdEnable){
         cv::threshold(_frameProcessed, _frameProcessed, binaryThreshold, 255, cv::THRESH_BINARY);
     }
+
+}
+
+void OpenCvWorker::receiveSetup(const int device)
+{
+
+}
+
+void OpenCvWorker::receiveTogleStream()
+{
+
+}
+
+void OpenCvWorker::receiveEnableBinaryThreshold()
+{
+
+}
+
+void OpenCvWorker::receiveBinaryThreshold(int threshold)
+{
 
 }
