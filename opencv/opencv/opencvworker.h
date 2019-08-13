@@ -19,7 +19,7 @@ private:
     cv::VideoCapture *cap;
 
     bool status;
-    bool togleStream;
+    bool toggleStream;
 
     bool binaryThresholdEnable;
     int  binaryThreshold;
