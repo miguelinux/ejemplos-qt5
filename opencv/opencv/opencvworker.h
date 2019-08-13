@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QImage>
 
-#include <opencv2/core.hpp>
+//#include <opencv2/core.hpp>
 //#include <opencv4/opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 

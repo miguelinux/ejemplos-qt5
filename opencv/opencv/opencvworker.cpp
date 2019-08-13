@@ -1,4 +1,5 @@
 #include "opencvworker.h"
+#include <opencv2/imgproc.hpp>
 
 OpenCvWorker::OpenCvWorker(QObject *parent) :
     QObject(parent),
@@ -35,5 +36,15 @@ void OpenCvWorker::receiveGrabFrame()
     QImage output(const_cast<const unsigned char *>(_frameProcessed.data), _frameProcessed.cols, _frameProcessed.rows, QImage::Format_Indexed8);
 
     emit sendFrame(output);
+
+}
+
+void OpenCvWorker::process()
+{
+    cv::cvtColor(_frameOriginal, _frameProcessed, cv::COLOR_BGR2GRAY);
+
+    if(binaryThresholdEnable){
+        cv::threshold(_frameProcessed, _frameProcessed, binaryThreshold, 255, cv::THRESH_BINARY);
+    }
 
 }
