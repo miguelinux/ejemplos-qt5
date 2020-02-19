@@ -39,8 +39,12 @@ void OpenCvWorker::receiveGrabFrame()
 
 }
 
-void OpenCvWorker::checkIfDeviceIsOpen()
+void OpenCvWorker::checkIfDeviceIsOpen(const int device)
 {
+    if (cap != nullptr) {
+        if (cap->isOpened()) cap->release();
+        cap->open(device);
+    }
 }
 
 void OpenCvWorker::process()
